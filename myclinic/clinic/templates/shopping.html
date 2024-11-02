@@ -16,10 +16,11 @@
             แมวเหมียว <i class="fa fa-paw"></i></h1>
         <nav>
             <ul>
-                <li><a href="#"><i class="fa fa-shopping-cart"></i> ผลิตภัณฑ์และสินค้า</a></li>
-                <li><a href="contact.html"><i class="fa fa-phone"></i> ติดต่อ</a></li>
-                <li><a href="service.html"><i class="fa-solid fa-clipboard-list"></i> บริการ</a></li>
-                <li><a href="#"><i class="fa fa-calendar"></i> นัดจอง</a></li>
+                <li><a href="{% url 'shopping' %}"><i class="fa fa-shopping-cart"></i> ผลิตภัณฑ์และสินค้า</a></li>
+                <li><a href="{% url 'contact' %}"><i class="fa fa-phone"></i> ติดต่อ</a></li>
+                <li><a href="{% url 'service' %}"><i class="fa-solid fa-clipboard-list"></i> บริการ</a></li>
+                <li><a href="{% url 'hotel' %}"><i class="fa fa-calendar"></i> จองโรงแรม</a></li>
+                <li><a href="{% url 'reserv' %}"><i class="fa fa-calendar"></i> นัดจอง</a></li>
                 <li><a href="#"><i class="fa fa-user-alt fa-lg"></i></a></li>
             </ul>
 
@@ -31,8 +32,8 @@
         <div class="container">
             <div class="sidebar">
                 <a href="#" class="fix-head">ผลิตภัณฑ์และสินค้า</a>
-                <a href="shopping.html">อุปกรณ์อาบน้ำ</a>
-                <a href="#shopping_sweet.html">ขนม</a>
+                <a href="{% url 'shopping' %}">อุปกรณ์อาบน้ำ</a>
+                <a href="{% url 'shopping_sweet' %}">ขนม</a>
                 <a href="#">ของเล่น</a>
             </div>
             <div class="content">

@@ -16,10 +16,11 @@
             แมวเหมียว <i class="fa fa-paw"></i></h1>
         <nav>
             <ul>
-                <li><a href="#"><i class="fa fa-shopping-cart"></i> ผลิตภัณฑ์และสินค้า</a></li>
-                <li><a href="contact.html"><i class="fa fa-phone"></i> ติดต่อ</a></li>
-                <li><a href="service.html"><i class="fa-solid fa-clipboard-list"></i> บริการ</a></li>
-                <li><a href="#"><i class="fa fa-calendar"></i> นัดจอง</a></li>
+                <li><a href="{% url 'shopping' %}"><i class="fa fa-shopping-cart"></i> ผลิตภัณฑ์และสินค้า</a></li>
+                <li><a href="{% url 'contact' %}"><i class="fa fa-phone"></i> ติดต่อ</a></li>
+                <li><a href="{% url 'service' %}"><i class="fa-solid fa-clipboard-list"></i> บริการ</a></li>
+                <li><a href="{% url 'hotel' %}"><i class="fa fa-calendar"></i> จองโรงแรม</a></li>
+                <li><a href="{% url 'reserv' %}"><i class="fa fa-calendar"></i> นัดจอง</a></li>
                 <li><a href="#"><i class="fa fa-user-alt fa-lg"></i></a></li>
             </ul>
 
@@ -31,41 +32,41 @@
         <div class="container">
             <div class="sidebar">
                 <a href="#" class="fix-head">ผลิตภัณฑ์และสินค้า</a>
-                <a href="shopping.html">อุปกรณ์อาบน้ำ</a>
-                <a href="#shopping_sweet.html">ขนม</a>
+                <a href="{% url 'shopping' %}">อุปกรณ์อาบน้ำ</a>
+                <a href="{% url 'shopping_sweet' %}">ขนม</a>
                 <a href="#">ของเล่น</a>
             </div>
             <div class="content">
 
                 <div class="cart-container">
-                  
+
                     <div class="cart-item">
-                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image">
                         <img src="{% static 'image/sweet1.png' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>Petsuka รสนม</h3>
                             <p>ราคา : 49 ฿</p>
                         </div>
-                         
+
                     </div>
                     <div class="cart-item">
-                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image">
                         <img src="{% static 'image/sweet2.png' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>BANKADUK สันในไก่ </h3>
-                            <p>ราคา :  109 ฿</p>
+                            <p>ราคา : 109 ฿</p>
                         </div>
                     </div>
                     <div class="cart-item">
-                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
-                        <img src="{% static 'image/sweet3.jfif' %}" alt="สินค้า 1" class="cart-image">
+                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image">
+                        <img src="{% static 'image/sweet3.jpeg' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
-                            <h3>Delicio ขนมหมาแบบแท่งนิ่ม รสตับบด</h3>
+                            <h3>Delicio ขนมหมาแบบแท่งนิ่ม รสนมและตับ</h3>
                             <p>ราคา : 179 ฿</p>
                         </div>
                     </div>
                     <div class="cart-item">
-                        <img src="{% static 'image/caticon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/caticon.png' %}" alt="Dog/Cat Icon" class="icon-image">
                         <img src="{% static 'image/sweet4.jpg' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>CIAO ขนมแมวเลีย</h3>
@@ -73,15 +74,15 @@
                         </div>
                     </div>
                     <div class="cart-item">
-                        <img src="{% static 'image/caticon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/caticon.png' %}" alt="Dog/Cat Icon" class="icon-image">
                         <img src="{% static 'image/sweet5.jpg' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
-                            <h3> เบลลอตต้า มูส  แมวเลียรสทูน่า (4ซอง)</h3>
+                            <h3> เบลลอตต้า มูส แมวเลียรสทูน่า (4ซอง)</h3>
                             <p>ราคา : 50 ฿</p>
                         </div>
                     </div>
                     <div class="cart-item">
-                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image">
                         <img src="{% static 'image/sweet6.png' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>เบลลอตต้า มูส แมวเลียรสไก่ (4ซอง) </h3>

@@ -17,10 +17,11 @@
         <h1>คลินิกน้องหมาโฮ่ง<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; แมวเหมียว <i class="fa fa-paw"></i></h1>
         <nav>
             <ul>
-                <li><a href="#"><i class="fa fa-shopping-cart"></i> ผลิตภัณฑ์และสินค้า</a></li>
-                <li><a href="contact.html"><i class="fa fa-phone"></i> ติดต่อ</a></li>
-                <li><a href="service.html"><i class="fa-solid fa-clipboard-list"></i> บริการ</a></li>
-                <li><a href="#"><i class="fa fa-calendar"></i> นัดจอง</a></li>
+                <li><a href="{% url 'shopping' %}"><i class="fa fa-shopping-cart"></i> ผลิตภัณฑ์และสินค้า</a></li>
+                <li><a href="{% url 'contact' %}"><i class="fa fa-phone"></i> ติดต่อ</a></li>
+                <li><a href="{% url 'service' %}"><i class="fa-solid fa-clipboard-list"></i> บริการ</a></li>
+                <li><a href="{% url 'hotel' %}"><i class="fa fa-calendar"></i> จองโรงแรม</a></li>
+                <li><a href="{% url 'reserv' %}"><i class="fa fa-calendar"></i> นัดจอง</a></li>
                 <li><a href="#"><i class="fa fa-user-alt fa-lg"></i></a></li>
             </ul>
         </nav>
@@ -29,38 +30,43 @@
     <main>
         <h1>โรงแรมสัตว์เลี้ยง</h1>
         <div class="container">
-            <div class="div-for">
-                <label for="">สำหรับสุนัขหรือแมว ?</label>
-                <label><input type="checkbox" value="dog">สุนัข</label>
-                <label><input type="checkbox" value="cat">แมว</label>
-            </div>
-            <div class="div-choice">
-                <button class="btn-choice" id="veterinary">
-                    <img src="{% static 'icon/veterinary-2.png' %}"><br>
-                    เข้าพักรักษาตัว
-                </button>
-                <button class="btn-choice" id="house">
-                    <img src="{% static 'icon/dog-house.png' %}"><br>
-                    ฝากเลี้ยง
-                </button>
-            </div>
-            <h3>รายละเอียด</h3>
-            <div class="div-des">
-                <div class="side-left">
-                    <h4>ขนาด</h4>
-                    <button class="btn-size">ขนาดเล็ก<br>(0-4 kg)</button>
-                    <button class="btn-size">ขนาดกลาง<br>(5-10 kg)</button>
-                    <button class="btn-size">ขนาดใหญ่<br>(11-25 kg)</button>
-                    <button class="btn-size">ขนาดใหญ่พิเศษ<br>(26-44 kg)</button>
+            <form method="post">
+                {% csrf_token %}
+                <div class="div-for">
+                    <label for="">สำหรับสุนัขหรือแมว ?</label>
+                    <label><input type="checkbox" value="dog" name="pet_type">สุนัข</label>
+                    <label><input type="checkbox" value="cat" name="pet_type">แมว</label>
                 </div>
-                <div class="side-right">
-                    <h4>วันและเวลาที่จอง</h4>
-                    <input type="date">
+                <div class="div-choice">
+                    <button type="button" class="btn-choice" id="veterinary">
+                        <img src="{% static 'icon/veterinary-2.png' %}"><br>
+                        เข้าพักรักษาตัว
+                    </button>
+                    <button type="button" class="btn-choice" id="house">
+                        <img src="{% static 'icon/dog-house.png' %}"><br>
+                        ฝากเลี้ยง
+                    </button>
+                    <input type="hidden" name="stay_type" id="stay_type">
                 </div>
-            </div>
-            <div class="btn-submit">
-                <button>จอง</button>
-            </div>
+                <h3>รายละเอียด</h3>
+                <div class="div-des">
+                    <div class="side-left">
+                        <h4>ขนาด</h4>
+                        <button type="button" class="btn-size" data-size="small">ขนาดเล็ก<br>(0-4 kg)</button>
+                        <button type="button" class="btn-size" data-size="medium">ขนาดกลาง<br>(5-10 kg)</button>
+                        <button type="button" class="btn-size" data-size="large">ขนาดใหญ่<br>(11-25 kg)</button>
+                        <button type="button" class="btn-size" data-size="extra_large">ขนาดใหญ่พิเศษ<br>(26-44 kg)</button>
+                        <input type="hidden" name="size" id="size">
+                    </div>
+                    <div class="side-right">
+                        <h4>วันและเวลาที่จอง</h4>
+                        {{ form.booking_date }}
+                    </div>
+                </div>
+                <div class="btn-submit">
+                    <button type="submit">จอง</button>
+                </div>
+            </form>
         </div>
     </main>
 
@@ -68,21 +74,25 @@
         document.addEventListener("DOMContentLoaded", () => {
             const vetbtn = document.getElementById("veterinary");
             const housebtn = document.getElementById("house");
+            const stayTypeInput = document.getElementById("stay_type");
 
-            function toggleActive(button) {
+            function toggleActive(button, value) {
                 vetbtn.classList.remove("active");
                 housebtn.classList.remove("active");
                 button.classList.add("active");
+                stayTypeInput.value = value;
             }
 
-            vetbtn.addEventListener("click", () => toggleActive(vetbtn));
-            housebtn.addEventListener("click", () => toggleActive(housebtn));
+            vetbtn.addEventListener("click", () => toggleActive(vetbtn, "medical"));
+            housebtn.addEventListener("click", () => toggleActive(housebtn, "boarding"));
 
             const sizeButtons = document.querySelectorAll(".btn-size");
+            const sizeInput = document.getElementById("size");
 
             function toggleSizeActive(button) {
                 sizeButtons.forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
+                sizeInput.value = button.getAttribute("data-size");
             }
 
             sizeButtons.forEach(button => {

@@ -76,3 +76,22 @@ class MedicalRecord(models.Model):  # Replaces Treatment model to be more genera
 
     def __str__(self):
         return f"{self.pet.name} - {self.date}"
+    
+class BookingHotel(models.Model):
+    
+    STAY_TYPE_CHOICES = [
+        ('medical', 'เข้าพักรักษาตัว'),
+        ('boarding', 'ฝากเลี้ยง'),
+    ]
+    
+    SIZE_CHOICES = [
+        ('small', 'ขนาดเล็ก (0-4 kg)'),
+        ('medium', 'ขนาดกลาง (5-10 kg)'),
+        ('large', 'ขนาดใหญ่ (11-25 kg)'),
+        ('extra_large', 'ขนาดใหญ่พิเศษ (26-44 kg)'),
+    ]
+    
+    pet_type = models.CharField(max_length=10)
+    stay_type = models.CharField(max_length=10, choices=STAY_TYPE_CHOICES)
+    size = models.CharField(max_length=20, choices=SIZE_CHOICES)
+    booking_date = models.DateTimeField()
