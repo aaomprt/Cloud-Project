@@ -43,16 +43,16 @@
                       </div>
                     </div>
                     <div class="cards-two">
-                      <button class="item-two-one"> 
-                        <img src="{% static 'image/veterinary.png' %}" alt="Logo" >
+                      <button class="item-two-one" id="vet"> 
+                        <img src="{% static 'image/veterinary.png' %}" >
                         <p>ตรวจสุขภาพ</p>
                       </button>
-                      <button class="item-two-two"> 
-                        <img src="{% static 'image/sterilization.png' %}" alt="Logo" >
+                      <button class="item-two-two" id="sterilize"> 
+                        <img src="{% static 'image/sterilization.png' %}" >
                         <p>ทำหมัน</p>
                       </button>
-                      <button class="item-two-three"> 
-                        <img src="{% static 'image/bathing.png' %}" alt="Logo" >
+                      <button class="item-two-three" id="bath"> 
+                        <img src="{% static 'image/bathing.png' %}" >
                         <p>อาบน้ำ</p>
                       </button>
                     </div>
@@ -80,29 +80,32 @@
     </main>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-          const vetbtn = document.getElementById("veterinary");
-          const housebtn = document.getElementById("house");
+      const vet = document.getElementById("vet");
+      const sterilize = document.getElementById("sterilize");
+      const bath = document.getElementById("bath");
 
-          function toggleActive(button) {
-              vetbtn.classList.remove("active");
-              housebtn.classList.remove("active");
-              button.classList.add("active");
-          }
+      function toggleActive(button) {
+          vet.classList.remove("active");
+          sterilize.classList.remove("active");
+          bath.classList.remove("active");
+          button.classList.add("active");
+      }
 
-          vetbtn.addEventListener("click", () => toggleActive(vetbtn));
-          housebtn.addEventListener("click", () => toggleActive(housebtn));
+      vet.addEventListener("click", () => toggleActive(vet));
+      sterilize.addEventListener("click", () => toggleActive(sterilize));
+      bath.addEventListener("click", () => toggleActive(bath));
 
-          const sizeButtons = document.querySelectorAll(".btn-size");
+      const sizeButtons = document.querySelectorAll(".size-option");
 
-          function toggleSizeActive(button) {
-              sizeButtons.forEach(btn => btn.classList.remove("active"));
-              button.classList.add("active");
-          }
+      function toggleSizeActive(button) {
+          sizeButtons.forEach(btn => btn.classList.remove("active"));
+          button.classList.add("active");
+      }
 
-          sizeButtons.forEach(button => {
-              button.addEventListener("click", () => toggleSizeActive(button));
-          });
+      sizeButtons.forEach(button => {
+          button.addEventListener("click", () => toggleSizeActive(button));
       });
+  });
   </script>
   </body>
 </html>
