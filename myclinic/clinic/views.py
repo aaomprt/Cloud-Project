@@ -98,3 +98,7 @@ class ShoppingSweetView(View):
 class ContactView(View):
     def get(self, request):
         return render (request, 'contact.html')
+    
+class ReservView(View):
+    def get(self, request):
+        return render (request, 'reservation.html')
