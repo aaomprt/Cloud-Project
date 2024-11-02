@@ -74,3 +74,31 @@ class MedicalRecordCreateView(LoginRequiredMixin, View):
             record.save()
             return redirect('pet_detail', pk=pet_pk)  # Redirect to pet detail regardless of how the record was created
         return render(request, 'clinic/medical_record_form.html', {'form': form, 'pet': pet, 'appointment': appointment})
+
+class BookingHotelView(View):
+    def get(self, request):
+        return render (request, 'booking_hotel.html')
+    
+class ServiceView(View):
+    def get(self, request):
+        return render (request, 'service.html')
+    
+class ServiceView(View):
+    def get(self, request):
+        return render (request, 'service.html')
+    
+class ShoppingView(View):
+    def get(self, request):
+        return render (request, 'shopping.html')
+    
+class ShoppingSweetView(View):
+    def get(self, request):
+        return render (request, 'shopping_sweet.html')
+    
+class ContactView(View):
+    def get(self, request):
+        return render (request, 'contact.html')
+    
+class ReservView(View):
+    def get(self, request):
+        return render (request, 'reservation.html')
