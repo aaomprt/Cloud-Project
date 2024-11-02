@@ -10,7 +10,7 @@ from .forms import *
 
 class HomeView(View):  # Class-based view for the home page
     def get(self, request):
-        return render(request, 'clinic/home.html')
+        return render(request, 'home.html')
 
 
 class PetCreateView(LoginRequiredMixin, View): # Requires login
