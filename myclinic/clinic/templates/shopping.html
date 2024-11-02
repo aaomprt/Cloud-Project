@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="th">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ผลิตภัณฑ์และสินค้า</title>
-    <link rel="stylesheet" href="style_shopping.css">
+    <link rel="stylesheet" href="{% static 'css/style_shopping.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -39,8 +40,8 @@
                 <div class="cart-container">
                   
                     <div class="cart-item">
-                        <img src="static/image/dogicon.png" alt="Dog/Cat Icon" class="icon-image"> 
-                        <img src="static/image/shampoo1.jpg" alt="สินค้า 1" class="cart-image">
+                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/shampoo1.jpg' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>MUTA Dog Shampoo สูตร Honey</h3>
                             <p>ราคา : 159 ฿</p>
@@ -48,40 +49,40 @@
                          
                     </div>
                     <div class="cart-item">
-                        <img src="static/image/dogicon.png" alt="Dog/Cat Icon" class="icon-image"> 
-                        <img src="static/image/shampoo2.jpg" alt="สินค้า 1" class="cart-image">
+                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/shampoo2.jpg' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>MUTA Dog Shampoo สูตร RELAXY</h3>
                             <p>ราคา : 159 ฿</p>
                         </div>
                     </div>
                     <div class="cart-item">
-                        <img src="static/image/dogicon.png" alt="Dog/Cat Icon" class="icon-image"> 
-                        <img src="static/image/shampoo3.jpg" alt="สินค้า 1" class="cart-image">
+                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/shampoo3.jpg' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>MUTA Dog Shampoo สูตร FRUITY</h3>
                             <p>ราคา : 159 ฿</p>
                         </div>
                     </div>
                     <div class="cart-item">
-                        <img src="static/image/dogicon.png" alt="Dog/Cat Icon" class="icon-image"> 
-                        <img src="static/image/shampoo4.jfif" alt="สินค้า 1" class="cart-image">
+                        <img src="{% static 'image/dogicon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/shampoo4.jfif' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>Odor Control Dog</h3>
                             <p>ราคา : 699 ฿</p>
                         </div>
                     </div>
                     <div class="cart-item">
-                        <img src="static/image/caticon.png" alt="Dog/Cat Icon" class="icon-image"> 
-                        <img src="static/image/shampoo5.jpg" alt="สินค้า 1" class="cart-image">
+                        <img src="{% static 'image/caticon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/shampoo5.jpg' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>Kanimal Cat Shampoo</h3>
                             <p>ราคา : 189 ฿</p>
                         </div>
                     </div>
                     <div class="cart-item">
-                        <img src="static/image/caticon.png" alt="Dog/Cat Icon" class="icon-image"> 
-                        <img src="static/image/shampoo6.jpg" alt="สินค้า 1" class="cart-image">
+                        <img src="{% static 'image/caticon.png' %}" alt="Dog/Cat Icon" class="icon-image"> 
+                        <img src="{% static 'image/shampoo6.jpg' %}" alt="สินค้า 1" class="cart-image">
                         <div class="pricetag">
                             <h3>Baering Cat Shampoo</h3>
                             <p>ราคา : 249 ฿</p>
