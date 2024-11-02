@@ -77,7 +77,17 @@ class MedicalRecordCreateView(LoginRequiredMixin, View):
 
 class BookingHotelView(View):
     def get(self, request):
-        return render (request, 'booking_hotel.html')
+        form = BookingForm()
+        return render(request, 'booking_hotel.html', {'form': form})
+    
+    def post(self, request):
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.save()
+            form.save_m2m()
+            return redirect('hotel')
+        return render(request, 'booking_hotel.html', {'form': form})
     
 class ServiceView(View):
     def get(self, request):

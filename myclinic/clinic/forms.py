@@ -1,5 +1,5 @@
 from django import forms
-from .models import Pet, Appointment, MedicalRecord, Owner # Import your models
+from .models import *
 
 class PetForm(forms.ModelForm):
     class Meta:
@@ -21,3 +21,11 @@ class OwnerForm(forms.ModelForm):
     class Meta:
         model = Owner
         fields = '__all__'
+
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = BookingHotel
+        fields = '__all__'
+        widgets = {
+            'booking_date': forms.DateTimeInput(attrs={'type': 'datetime-local'})
+        }
