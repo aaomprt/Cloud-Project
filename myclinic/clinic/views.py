@@ -83,9 +83,7 @@ class BookingHotelView(View):
     def post(self, request):
         form = BookingForm(request.POST)
         if form.is_valid():
-            booking = form.save(commit=False)
-            booking.save()
-            form.save_m2m()
+            form.save()
             return redirect('hotel')
         return render(request, 'booking_hotel.html', {'form': form})
     
