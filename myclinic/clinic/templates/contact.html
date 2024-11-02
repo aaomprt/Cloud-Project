@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ติดต่อเรา</title>
-    <link rel="stylesheet" href="style_contact.css">
+    <link rel="stylesheet" href="{% static 'css/style_contact.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -32,7 +33,7 @@
 
             <div class="contact-card"> 
                 <div class="service-info">
-                    <img src="static/image/map_icon.png">
+                    <img src="{% static 'image/map_icon.png' %}">
                     <h3>คลินิกน้องหมาโฮ่งแมวเหมี๊ยว</h3> <br> 
                     <p>ถนนฉลองกรุง เขตลาดกระบัง กรุงเทพฯ 10520</p>  
                 </div>
@@ -41,7 +42,7 @@
             <div class="contact-card">
                
                 <div class="service-info">
-                    <img src="static/image/phone_icon.png">
+                    <img src="{% static 'phone_icon.png' %}">
                     <h3>ติดต่อ</h3>
                     <br>
                     <p>เบอร์โทรศัพท์: 098-765-4321</p>

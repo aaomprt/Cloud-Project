@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>บริการ</title>
-    <link rel="stylesheet" href="style_service.css">
+    <link rel="stylesheet" href="{% static 'css/style_service.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -29,7 +30,7 @@
         <div class="services">
             
             <div class="service-card">
-                <img src="static/image/bath.png" alt="อาบน้ำและตัดขน">
+                <img src="{% static 'image/bath.png' %}" alt="อาบน้ำและตัดขน">
                 <div class="service-info">
                     <h3>อาบน้ำและตัดขน</h3>
                     <br><br><br><br><br><br>
@@ -37,7 +38,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <img src="static/image/health.png" alt="ตรวจสุขภาพ">
+                <img src="{% static 'image/health.png' %}" alt="ตรวจสุขภาพ">
                 <div class="service-info">
                     <h3>ตรวจสุขภาพ</h3>
                     <br><br><br><br><br><br>
@@ -45,7 +46,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <img src="static/image/vaccination.png" alt="ทำหมัน">
+                <img src="{% static 'image/vaccination.png' %}g" alt="ทำหมัน">
                 <div class="service-info">
                     <h3>ทำหมัน</h3>
                     <br><br><br><br><br><br>
