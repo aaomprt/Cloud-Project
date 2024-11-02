@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Hotel</title>
+    <link rel="icon" href="{% static 'icon/animal-shelter.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style_booking_hotel.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>คลินิกน้องหมาโฮ่ง<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; แมวเหมียว <i class="fa fa-paw"></i></h1>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fa fa-shopping-cart"></i> ผลิตภัณฑ์และสินค้า</a></li>
+                <li><a href="contact.html"><i class="fa fa-phone"></i> ติดต่อ</a></li>
+                <li><a href="service.html"><i class="fa-solid fa-clipboard-list"></i> บริการ</a></li>
+                <li><a href="#"><i class="fa fa-calendar"></i> นัดจอง</a></li>
+                <li><a href="#"><i class="fa fa-user-alt fa-lg"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>โรงแรมสัตว์เลี้ยง</h1>
+        <div class="container">
+            <div class="div-for">
+                <label for="">สำหรับสุนัขหรือแมว ?</label>
+                <label><input type="checkbox" value="dog">สุนัข</label>
+                <label><input type="checkbox" value="cat">แมว</label>
+            </div>
+            <div class="div-choice">
+                <button class="btn-choice" id="veterinary">
+                    <img src="{% static 'icon/veterinary-2.png' %}"><br>
+                    เข้าพักรักษาตัว
+                </button>
+                <button class="btn-choice" id="house">
+                    <img src="{% static 'icon/dog-house.png' %}"><br>
+                    ฝากเลี้ยง
+                </button>
+            </div>
+            <h3>รายละเอียด</h3>
+            <div class="div-des">
+                <div class="side-left">
+                    <h4>ขนาด</h4>
+                    <button class="btn-size">ขนาดเล็ก<br>(0-4 kg)</button>
+                    <button class="btn-size">ขนาดกลาง<br>(5-10 kg)</button>
+                    <button class="btn-size">ขนาดใหญ่<br>(11-25 kg)</button>
+                    <button class="btn-size">ขนาดใหญ่พิเศษ<br>(26-44 kg)</button>
+                </div>
+                <div class="side-right">
+                    <h4>วันและเวลาที่จอง</h4>
+                    <input type="date">
+                </div>
+            </div>
+            <div class="btn-submit">
+                <button>จอง</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const vetbtn = document.getElementById("veterinary");
+            const housebtn = document.getElementById("house");
+
+            function toggleActive(button) {
+                vetbtn.classList.remove("active");
+                housebtn.classList.remove("active");
+                button.classList.add("active");
+            }
+
+            vetbtn.addEventListener("click", () => toggleActive(vetbtn));
+            housebtn.addEventListener("click", () => toggleActive(housebtn));
+
+            const sizeButtons = document.querySelectorAll(".btn-size");
+
+            function toggleSizeActive(button) {
+                sizeButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+            }
+
+            sizeButtons.forEach(button => {
+                button.addEventListener("click", () => toggleSizeActive(button));
+            });
+        });
+    </script>
+    
+</body>
+</html>
