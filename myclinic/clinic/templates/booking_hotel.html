@@ -74,21 +74,25 @@
         document.addEventListener("DOMContentLoaded", () => {
             const vetbtn = document.getElementById("veterinary");
             const housebtn = document.getElementById("house");
+            const stayTypeInput = document.getElementById("stay_type");
 
-            function toggleActive(button) {
+            function toggleActive(button, value) {
                 vetbtn.classList.remove("active");
                 housebtn.classList.remove("active");
                 button.classList.add("active");
+                stayTypeInput.value = value;
             }
 
-            vetbtn.addEventListener("click", () => toggleActive(vetbtn));
-            housebtn.addEventListener("click", () => toggleActive(housebtn));
+            vetbtn.addEventListener("click", () => toggleActive(vetbtn, "medical"));
+            housebtn.addEventListener("click", () => toggleActive(housebtn, "boarding"));
 
             const sizeButtons = document.querySelectorAll(".btn-size");
+            const sizeInput = document.getElementById("size");
 
             function toggleSizeActive(button) {
                 sizeButtons.forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
+                sizeInput.value = button.getAttribute("data-size");
             }
 
             sizeButtons.forEach(button => {
