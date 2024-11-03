@@ -95,3 +95,23 @@ class BookingHotel(models.Model):
     stay_type = models.CharField(max_length=10, choices=STAY_TYPE_CHOICES)
     size = models.CharField(max_length=20, choices=SIZE_CHOICES)
     booking_date = models.DateTimeField()
+
+class Reservation(models.Model):
+    
+    STAY_TYPE_CHOICES = [
+        ('veterinary', 'ตรวจสุขภาพ'),
+        ('sterilization', 'ทำหมัน'),
+        ('bath', 'อาบน้ำ')
+    ]
+    
+    SIZE_CHOICES = [
+        ('small', 'ขนาดเล็ก (0-4 kg)'),
+        ('medium', 'ขนาดกลาง (5-10 kg)'),
+        ('large', 'ขนาดใหญ่ (11-25 kg)'),
+        ('extra_large', 'ขนาดใหญ่พิเศษ (26-44 kg)'),
+    ]
+    
+    pet_type = models.CharField(max_length=20)
+    stay_type = models.CharField(max_length=20, choices=STAY_TYPE_CHOICES)
+    size = models.CharField(max_length=20, choices=SIZE_CHOICES)
+    booking_date = models.DateTimeField()

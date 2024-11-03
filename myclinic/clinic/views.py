@@ -109,4 +109,12 @@ class ContactView(View):
     
 class ReservView(View):
     def get(self, request):
-        return render (request, 'reservation.html')
+        form = ReservForm()
+        return render(request, 'reservation.html', {'form': form})
+    
+    def post(self, request):
+        form = ReservForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('hotel')
+        return render(request, 'reservation.html', {'form': form})
