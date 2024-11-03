@@ -29,3 +29,11 @@ class BookingForm(forms.ModelForm):
         widgets = {
             'booking_date': forms.DateTimeInput(attrs={'type': 'datetime-local'})
         }
+
+class ReservForm(forms.ModelForm):
+    class Meta:
+        model = Reservation
+        fields = '__all__'
+        widgets = {
+            'booking_date': forms.DateTimeInput(attrs={'type': 'datetime-local'})
+        }
