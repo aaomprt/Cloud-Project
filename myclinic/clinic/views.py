@@ -87,8 +87,7 @@ class RegisterView(View):
             User.objects.create(
                 first_name = user.first_name,
                 last_name = user.last_name,
-                email = user.email,
-                authen = user
+                email = user.email
             ) 
 
             messages.success(request, 'Account was create for ' + user.username)
@@ -112,7 +111,7 @@ class LoginView(View):
             user = form.get_user() 
             login(request,user)
 
-        return render(request,'login.html', {"form":form})
+        return render(request,'home.html', {"form":form})
     
 
 class BookingHistoryView(View):
