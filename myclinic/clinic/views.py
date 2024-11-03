@@ -113,4 +113,16 @@ class LoginView(View):
             login(request,user)
 
         return render(request,'login.html', {"form":form})
+    
+
+class BookingHistoryView(View):
+    def get(self, request):
+        hotel_bookings = BookingHotel.objects.all()  # ดึงข้อมูลการจองจากโมเดล BookingHotel
+        reservations = Reservation.objects.all()      # ดึงข้อมูลการจองจากโมเดล Reservation
+        
+        context = {
+            'hotel_bookings': hotel_bookings,
+            'reservations': reservations,
+        }
+        return render(request, 'booking_history.html', context)
 

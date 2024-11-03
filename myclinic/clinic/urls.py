@@ -11,4 +11,5 @@ urlpatterns = [
     path('reserv/', views.ReservView.as_view(), name='reserv'),
     path("register/", views.RegisterView.as_view(), name="register"),
     path("login/", views.LoginView.as_view(), name="login"),
+    path('booking-history/', views.BookingHistoryView.as_view(), name='booking_history')
 ]

@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding: 20px;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 0.5px solid #000000;
+    font-size: 22px;
+    margin-top: 10px; 
+}
+
+header h1 {
+    font-size: 32px;
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;  
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 240px auto; 
+    background-color: white;
+    width: 90%;
+    min-height: 80vh;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.container h1, hr {
+    margin: 40px 20px;
+}
+
+.content {
+    font-size: 20px;
+    text-align: center;
+}
+
+.sidebar {
+    display: flex; 
+    flex-direction: column; 
+    text-align: center;  
+    background-color: #8CCAC6;  
+    border-radius: 20px; 
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2); 
+    overflow: hidden;  
+    transition: box-shadow 0.3s; 
+}
+
+.sidebar:hover {
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.3);  
+}
+
+.sidebar a {
+    padding: 15px 20px;  
+    text-decoration: none;  
+    font-size: 26px; 
+    color: #333;  
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);  
+    transition: background-color 0.3s, color 0.3s;  
+}
+
+.sidebar a:hover {
+    background-color: #D1CACA; 
+    color: white;  
+}
+
+.sidebar a.fix-head {
+    background-color: #8CCAC6;  
+    color: #333; 
+    font-weight: bold; 
+    border-bottom: none; 
+    font-size: 32px;
+}
+
+.sidebar a.fix-head:hover {
+    background-color: #8CCAC6;  
+    color: #333; 
+}
+table {
+    width: 100%;  
+    border-collapse: collapse;  
+    margin-top: 20px;  
+    margin-left: 20px;  
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับตาราง */
+    border-radius: 8px; /* เพิ่มความมนให้กับมุม */
+    overflow: hidden; /* ทำให้มุมมนทำงานได้ */
+}
+
+thead {
+    background-color: #6a5acd;  
+    color: white;  
+}
+
+th, td {
+    padding: 12px; 
+    text-align: left;  
+    border-bottom: 1px solid #ddd; 
+}
+
+th {
+    font-weight: bold; /* ทำให้หัวตารางหนาขึ้น */
+    font-size: 24px; /* ขนาดตัวอักษรที่ชัดเจน */
+}
+
+td {
+    font-size: 20px; /* ขนาดตัวอักษรของข้อมูล */
+    color: #333; /* สีของข้อความในตาราง */
+}
+
+tr:hover {
+    background-color: rgba(106, 90, 205, 0.1); /* สีพื้นหลังเมื่อโฮเวอร์ */
+}
+
+p {
+    font-size: 22px; 
+    color: #555;  
+    text-align: center;  
+    margin-top: 20px;  
+    font-style: italic; /* ทำให้ข้อความมีสไตล์ */
+}
