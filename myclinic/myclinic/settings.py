@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'myclinic.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "clinic_project",
+        "USER": "postgres",
+        "PASSWORD": "clinicproject",
+        "HOST": "clinic-db2.clrlvuvsk7ps.us-east-1.rds.amazonaws.com",
+        "PORT": "5432",
     }
 }
 
