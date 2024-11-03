@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, SetPasswordForm
 
 class PetForm(forms.ModelForm):
     class Meta:
@@ -37,3 +38,9 @@ class ReservForm(forms.ModelForm):
         widgets = {
             'booking_date': forms.DateTimeInput(attrs={'type': 'datetime-local'})
         }
+
+
+class CreateUser(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2']

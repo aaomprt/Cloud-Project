@@ -9,4 +9,6 @@ urlpatterns = [
     path('shopping/sweet/', views.ShoppingSweetView.as_view(), name='shopping_sweet'),
     path('contact/', views.ContactView.as_view(), name='contact'),
     path('reserv/', views.ReservView.as_view(), name='reserv'),
+    path("register/", views.RegisterView.as_view(), name="register"),
+    path("login/", views.LoginView.as_view(), name="login"),
 ]

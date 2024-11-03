@@ -5,8 +5,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin  # For class-based vie
 from django.views import View # Base class for class-based views
 from .models import *
 from .forms import *
-
-
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import logout, login
+from django.contrib import messages
 
 class HomeView(View):  # Class-based view for the home page
     def get(self, request):
@@ -118,3 +119,48 @@ class ReservView(View):
             form.save()
             return redirect('hotel')
         return render(request, 'reservation.html', {'form': form})
+    
+class RegisterView(View):
+    def get(self, request):
+        form = CreateUser()
+        return render(request, "register.html", {
+            "form" : form
+        })
+    
+    def post(self, request):
+        form = CreateUser(request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            print(request.POST)
+
+            User.objects.create(
+                first_name = user.first_name,
+                last_name = user.last_name,
+                email = user.email,
+                authen = user
+            ) 
+
+            messages.success(request, 'Account was create for ' + user.username)
+            return redirect('login')
+        else:
+            messages.success(request, 'กรุณาตรวจสอบแบบฟอร์มให้ละเอียด')
+            return render(request, "register.html", {
+                "form": form
+            })
+
+
+class LoginView(View):
+    
+    def get(self, request):
+        form = AuthenticationForm()
+        return render(request, 'login.html', {"form": form})
+    
+    def post(self, request):
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user() 
+            login(request,user)
+
+        return render(request,'login.html', {"form":form})
+
