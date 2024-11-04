@@ -32,6 +32,8 @@
             <div clss="con-line">
                 <h1>นัดจอง</h1>
             </div>
+            <form method="post">
+              {% csrf_token %}
                 <div class="con-container">
                     <div class="cards-one"> 
                       <div class="item-one"> 
@@ -78,6 +80,7 @@
                       <button>จอง</button>
                     </div>
                 </div>
+              </form>
         </div>
     </main>
     <script>
